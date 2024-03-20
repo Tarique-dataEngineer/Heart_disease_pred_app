@@ -1,10 +1,10 @@
 from flask import Flask, render_template, request
-import joblib
+import pickle
 import numpy as np
 
 app = Flask(__name__)
 
-model = joblib.load("model.pkl")
+model = pickle.load(open("model.pkl", "rb"))
 
 def predict_heart_disease(age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal):
     data = np.array([age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal]).reshape(1, -1)
