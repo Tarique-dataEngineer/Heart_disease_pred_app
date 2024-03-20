@@ -4,7 +4,7 @@ import numpy as np
 
 app = Flask(__name__)
 
-model = pickle.load(open("model.pkl", "rb"))
+model = joblib.load("model.pkl")
 
 def predict_heart_disease(age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal):
     data = np.array([age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal]).reshape(1, -1)
